@@ -26,7 +26,7 @@ const EditUser = ({ navigation }) => {
 
 
   //go back home
-  onPressHome = () => {
+  let onPressHome = () => {
     navigation.navigate("Home");
   }
 
