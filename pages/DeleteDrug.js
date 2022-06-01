@@ -1,9 +1,5 @@
-//    blog.edafait.com
-//    www.edafait.com
-// Screen to delete the user
-
 import React, { useState } from 'react';
-import { Button, Text, View, Alert, SafeAreaView } from 'react-native';
+import { View, Alert, SafeAreaView } from 'react-native';
 import Mytextinput from './components/Mytextinput';
 import Mybutton from './components/Mybutton';
 
@@ -12,7 +8,7 @@ const DeleteDrug = ({ route, navigation }) => {
   const { itemId } = route.params;
   let deleteUser = () => {
     var data = {
-        "drugID" : itemID
+        "drugID" : itemId
       }
       var request = new Request('http://10.0.2.2:5000/api/deleteDrug' , {
         method: 'POST',
@@ -38,31 +34,7 @@ const DeleteDrug = ({ route, navigation }) => {
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
   };
-    // db.transaction((tx) => {
-    //   tx.executeSql(
-    //     'DELETE FROM  table_user where user_id=?',
-    //     [inputUserId],
-    //     (tx, results) => {
-    //       console.log('Results', results.rowsAffected);
-    //       if (results.rowsAffected > 0) {
-    //         Alert.alert(
-    //           'Success',
-    //           'User deleted successfully',
-    //           [
-    //             {
-    //               text: 'Ok',
-    //               onPress: () => navigation.navigate('HomeScreen'),
-    //             },
-    //           ],
-    //           { cancelable: false }
-    //         );
-    //       } else {
-    //         alert('Please insert a valid User Id');
-    //       }
-    //     }
-    //   );
-    // });
-
+ 
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flex: 1, backgroundColor: 'white' }}>
